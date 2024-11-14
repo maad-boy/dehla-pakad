@@ -1,10 +1,16 @@
 package creategame
 
 import (
-	"errors"
+	"github.com/maad-boy/dehla-pakad/internal/service"
 	"golang.org/x/net/context"
 )
 
 func Execute(ctx context.Context, payload Payload) (*Response, error) {
-	return nil, errors.New("not implemented")
+	game, err := service.GetGameService().Create(ctx)
+	if err != nil {
+		return nil, err
+	}
+	return &Response{
+		GameId: game.ID,
+	}, nil
 }
