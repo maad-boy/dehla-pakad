@@ -1,5 +1,9 @@
 package game
 
-func GetService() Service {
-	return Service{}
+import "github.com/maad-boy/dehla-pakad/internal/service/repo/gamerepo"
+
+func GetService(repo gamerepo.Repository) Service {
+	return Service{
+		repo: repo,
+	}
 }

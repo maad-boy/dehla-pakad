@@ -1,6 +1,7 @@
 package game
 
 import (
+	"fmt"
 	"github.com/maad-boy/dehla-pakad/internal/dto/deck"
 	"github.com/maad-boy/dehla-pakad/internal/entity/gameEntity"
 	"github.com/maad-boy/dehla-pakad/internal/utils"
@@ -11,8 +12,8 @@ func (s Service) Create(ctx context.Context) (*gameEntity.Game, error) {
 	players := make([]gameEntity.PlayerInfo, 4)
 	for i := 0; i < 4; i++ {
 		players[i] = gameEntity.PlayerInfo{
-			ID:   string(i),
-			Name: string(i),
+			ID:   fmt.Sprint(i),
+			Name: fmt.Sprint(i),
 		}
 	}
 

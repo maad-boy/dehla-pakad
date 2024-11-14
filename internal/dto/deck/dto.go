@@ -26,7 +26,7 @@ func (d *Deck) Dealing(numberOfHand int) [][]card.Card {
 		result[i] = make([]card.Card, 0)
 	}
 	cardInEachHand := len(d.cards) / numberOfHand
-	for i := 0; i < cardInEachHand; i++ {
+	for i := 0; i < numberOfHand; i++ {
 		result[i] = d.cards[cardInEachHand*i : cardInEachHand*(i+1)]
 	}
 	return result
