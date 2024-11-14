@@ -23,6 +23,7 @@ func GinHandler[Req any, Res any](handler Handler[Req, Res]) func(c *gin.Context
 		res, err := handler.Handle(ctx, *req)
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
 		}
 		c.JSON(http.StatusOK, res)
 	}
