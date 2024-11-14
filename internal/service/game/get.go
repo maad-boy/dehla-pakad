@@ -1,6 +1,9 @@
 package game
 
-import "context"
+import (
+	"context"
+	"github.com/maad-boy/dehla-pakad/internal/entity/gameEntity"
+)
 
 func (s Service) GetAllGame(ctx context.Context) ([]string, error) {
 	games, err := s.repo.GetAllGames(ctx)
@@ -12,4 +15,8 @@ func (s Service) GetAllGame(ctx context.Context) ([]string, error) {
 		result[i] = game.ID
 	}
 	return result, nil
+}
+
+func (s Service) GetGameById(ctx context.Context, gameId string) (*gameEntity.Game, error) {
+	return s.repo.GetGameById(ctx, gameId)
 }
