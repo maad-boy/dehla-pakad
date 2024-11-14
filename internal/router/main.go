@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/maad-boy/dehla-pakad/internal/router/handlers"
 	"github.com/maad-boy/dehla-pakad/internal/router/handlers/creategame"
+	"github.com/maad-boy/dehla-pakad/internal/router/handlers/getallgame"
 	"github.com/maad-boy/dehla-pakad/internal/router/handlers/health"
 )
 
@@ -12,4 +13,5 @@ func AddRouter(engin *gin.Engine) {
 
 	game := engin.Group("/game")
 	game.POST("/create", handlers.GinHandler(creategame.NewHandler()))
+	game.GET("/all", handlers.GinHandler(getallgame.NewHandler()))
 }
