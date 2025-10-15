@@ -2,7 +2,7 @@ package game
 
 import (
 	"fmt"
-	"github.com/maad-boy/dehla-pakad/internal/dto/deck"
+	"github.com/maad-boy/dehla-pakad/internal/dto/card"
 	"github.com/maad-boy/dehla-pakad/internal/entity/gameEntity"
 	"github.com/maad-boy/dehla-pakad/internal/utils"
 	"golang.org/x/net/context"
@@ -21,7 +21,7 @@ func (s Service) Create(ctx context.Context) (*gameEntity.Game, error) {
 		ID:      utils.GetStrId(10),
 		Players: players,
 		Cards: gameEntity.GameCard{
-			PlayerCard: deck.NewDeck().Shuffle().Dealing(4),
+			PlayerCard: card.NewDeck().Shuffle().Dealing(4),
 		},
 		TurnIdx: 0,
 	}
